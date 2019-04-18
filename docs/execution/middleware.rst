@@ -16,7 +16,7 @@ Resolve arguments
 
 Middlewares ``resolve`` is invoked with several arguments:
 
-- ``next`` represents the execution chain. Call ``next`` to continue evalution.
+- ``next`` represents the execution chain. Call ``next`` to continue evaluation.
 - ``root`` is the root value object passed throughout the query.
 - ``info`` is the resolver info.
 - ``args`` is the dict of arguments passed to the field.
@@ -29,7 +29,7 @@ This middleware only continues evaluation if the ``field_name`` is not ``'user'`
 .. code:: python
 
     class AuthorizationMiddleware(object):
-        def resolve(self, next, root, info, **args):
+        def resolve(next, root, info, **args):
             if info.field_name == 'user':
                 return None
             return next(root, info, **args)
